@@ -2,7 +2,18 @@ from tkinter import *
 from lxml import html
 import requests
 import braille
+import json
+from ibm_watson import NaturalLanguageUnderstandingV1
+from ibm_watson.natural_language_understanding_v1 import Features, EntitiesOptions, KeywordsOptions, MetadataOptions, ConceptsOptions
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import time
+
+# Authentication via IAM
+authenticator = IAMAuthenticator('fvqo2-7Ubmnf5rmImg7ycQkj3IW9Op2J3bQtsCmqLqf_')
+service = NaturalLanguageUnderstandingV1(
+      version='2018-03-16',
+      authenticator=authenticator)
+service.set_service_url('https://gateway.watsonplatform.net/natural-language-understanding/api')
 
 
 def notEmpty(array):
@@ -13,7 +24,8 @@ def notEmpty(array):
                 countEmpty += 1
     return countEmpty != 6
 
-#run this method with array to produce output in braille
+
+# run this method with array to produce output in braille
 def convertAndRun(thisArray, c):
     class sixDot:
         def __init__(self, window, xcor, ycor, array):
@@ -46,13 +58,15 @@ def convertAndRun(thisArray, c):
     window.mainloop()
 
 
+response = service.analyze(
+    url='https://en.wikipedia.org/wiki/Fortnite',
+    features=Features(metadata=MetadataOptions()),
+    return_analyzed_text=True).get_result()
 
-page = requests.get('http://en.wikipedia.org/wiki/Fortnite')
-tree = html.fromstring(page.content)
-tableOfContent = tree.xpath('//*[@id="toc"]/ul/li/a/span[@class="toctext"]/text()')
-subTitles = tree.xpath('//h2/span[@class="mw-headline"]/text()')
-content = tree.xpath('//div[@class="mw-parser-output"]/p/text() | //div[@class="mw-parser-output"]/p/*/text() |'
-                     ' //div[@class="mw-parser-output"]/p/*/*/text()')
-for c in content:
+print(response['analyzed_text'])
+
+strArr = response['analyzed_text'].split()
+
+for c in strArr:
     arr = braille.textToAsciiBraille(c)
     convertAndRun(arr, c)

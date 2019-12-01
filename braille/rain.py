@@ -16,10 +16,11 @@ service.set_service_url('https://gateway.watsonplatform.net/natural-language-und
 # service.set_service_url('https://gateway.watsonplatform.net/natural-language-understanding/api')
 
 response = service.analyze(
-    url='https://en.wikipedia.org/wiki/Overwatch_(video_game)',
-    features=Features(concepts=ConceptsOptions(),
-                      metadata=MetadataOptions()),
-                      return_analyzed_text=True).get_result()
+    url='https://en.wikipedia.org/wiki/Fortnite',
+    features=Features(metadata=MetadataOptions()),
+    return_analyzed_text=True).get_result()
+
 
 print(json.dumps(response, indent=2))
+print(response['analyzed_text'])
 
