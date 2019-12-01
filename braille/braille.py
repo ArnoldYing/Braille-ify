@@ -1,32 +1,9 @@
-
-#!/usr/local/bin/python3
-# -*- coding: utf8 -*-
-
+#Source: https://github.com/AaditT/braille
 # Written by Aadit Trivedi
 # June 6, 2018
 # Braille Library
 
-# # Dependencies
-# 1) sudo apt-get install pyaudio
-# 3) sudo apt-get install espeak 
-# 2) pip3 install SpeechRecognition
-# 3) pip3 install numpy
-# 4) pip3 install pillow
-# 5) sudo apt-get install pytesseract
-# 6) sudo apt-get install opencv-python
-# 7) pip3 install opencv
-# 8) pip3 install matplotlib
-
-# Upload to GitHub
-
-# import speech_recognition as sr
-# import numpy as np
 import os
-# from PIL import Image
-# from pytesseract import image_to_string
-# import matplotlib.pyplot as plt
-# import PIL
-
 from creds import wit_api_key
 
 global void
@@ -104,65 +81,6 @@ counter = 0
 while counter < arrayLength:
     ascii_braille[asciicodes[counter]] = brailles[counter]
     counter = counter + 1
-
-letterToImgPath = {
-    "a": "/Users/aadittrivedi/Desktop/braille/a.png",
-    "b": "/Users/aadittrivedi/Desktop/braille/b.png",
-    "c": "/Users/aadittrivedi/Desktop/braille/c.png",
-    "d": "/Users/aadittrivedi/Desktop/braille/d.png",
-    "e": "/Users/aadittrivedi/Desktop/braille/e.png",
-    "f": "/Users/aadittrivedi/Desktop/braille/f.png",
-    "g": "/Users/aadittrivedi/Desktop/braille/g.png",
-    "h": "/Users/aadittrivedi/Desktop/braille/h.png",
-    "i": "/Users/aadittrivedi/Desktop/braille/i.png",
-    "j": "/Users/aadittrivedi/Desktop/braille/j.png",
-    "k": "/Users/aadittrivedi/Desktop/braille/k.png",
-    "l": "/Users/aadittrivedi/Desktop/braille/l.png",
-    "m": "/Users/aadittrivedi/Desktop/braille/m.png",
-    "n": "/Users/aadittrivedi/Desktop/braille/n.png",
-    "o": "/Users/aadittrivedi/Desktop/braille/o.png",
-    "p": "/Users/aadittrivedi/Desktop/braille/p.png",
-    "q": "/Users/aadittrivedi/Desktop/braille/q.png",
-    "r": "/Users/aadittrivedi/Desktop/braille/r.png",
-    "s": "/Users/aadittrivedi/Desktop/braille/s.png",
-    "t": "/Users/aadittrivedi/Desktop/braille/t.png",
-    "u": "/Users/aadittrivedi/Desktop/braille/u.png",
-    "v": "/Users/aadittrivedi/Desktop/braille/v.png",
-    "w": "/Users/aadittrivedi/Desktop/braille/w.png",
-    "x": "/Users/aadittrivedi/Desktop/braille/x.png",
-    "y": "/Users/aadittrivedi/Desktop/braille/y.png",
-    "z": "/Users/aadittrivedi/Desktop/braille/z.png",
-    " ": "/Users/aadittrivedi/Desktop/braille/void.png",
-}
-
-# def addImages(list_im):
-#     imgs = [ PIL.Image.open(i) for i in list_im ]
-#     min_shape = sorted( [(np.sum(i.size), i.size ) for i in imgs])[0][1]
-#     imgs_comb = np.hstack( (np.asarray( i.resize(min_shape) ) for i in imgs ) )
-#     imgs_comb = PIL.Image.fromarray(imgs_comb)
-#     imgs_comb.save('output.jpg')  
- 
-# def writeImage(b_string):
-#     images = []
-#     for letter in b_string:
-#         images.append(letterToImgPath[letter])
-#     addImages(images)    
-#     img = Image.open('output.jpg')
-#     img.show()
-
-# def writeText(b_string):
-#     final_string = ''
-#     for letters in b_string:
-#         final_string = final_string + ascii_braille[letters.lower()]
-#     print(final_string)
-
-# def speechToText():
-#     rec = sr.Recognizer()
-#     mic = sr.Microphone()
-#     with mic as source:
-#         rec.adjust_for_ambient_noise(source)
-#         audio = rec.listen(source)
-#         return(str(rec.recognize_wit(audio, wit_api_key)))
 
 def textToBraille(text):
     final_string = ''
@@ -312,12 +230,6 @@ def textToAsciiBraille(text):
             final_string = final_string + [charToArray[" "]]
     return final_string
 
-# def speechToBraille():
-#     textToBraille(speechToText())
-
-# def textToSpeech(text):
-#     os.system("espeak '" + str(text) + "'")
-
 def brailleToTextArray(array):
     new_chars = ''
     for key in array:
@@ -325,21 +237,3 @@ def brailleToTextArray(array):
             if charToArray[a_key] == key:
                 new_chars = new_chars + str(a_key)
     return new_chars
-
-# def brailleToSpeechArray(array):
-#     textToSpeech(brailleToTextArray(array))
-
-# def brailleToSpeechImg(imgs):
-#     for img in imgs:
-#         for chars in letterToImgPath:
-#             if img == letterToImgPath[chars]:
-#                 print(chars)
-
-# def imageToText(img):
-#     return image_to_string(Image.open(img))
-
-# def imageToSpeech(img):
-#     textToSpeech(imageToText(img))
-
-# def imageToBraille(img):
-#     textToBraille(imageToText(img))
