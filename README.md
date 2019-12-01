@@ -1,5 +1,5 @@
 ## Summary 
-Barille-ify is a device that translates electronic web pages to Brailled, aimed towards increasing accessibility for the visually impaired. 
+Barille-ify is a device that translates electronic web pages to Braille, aimed towards increasing accessibility for the visually impaired. 
 
 ## Inspiration
 There are millions of people in the world that are blind, while the internet a widespread amount of information inaccessible to the visually impaired. We created an application that would fix this issue. This application not only translates online webpages into braille (currently displayed in a Python GUI). As well, it is very time-consuming to read in braille when compared to other languages, so we implemented an API that condenses long articles into key words according to their relevance for increased literacy. The program can be connected to a Rasperry Pi board and pistons for practical use.
