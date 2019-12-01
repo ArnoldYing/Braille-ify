@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd00dfdd-e82b-417c-b803-65384ff5a235" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/WikipediBraille.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/braille/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/braille/rain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/braille/braille.py" beforeDir="false" afterPath="$PROJECT_DIR$/braille/braille.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/braille/wiki.py" beforeDir="false" afterPath="$PROJECT_DIR$/braille/wiki.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/braille/wiki.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="110" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="110" />
+            <state relative-caret-position="57">
+              <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -223,8 +222,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/braille/wiki.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="110" selection-start-line="9" selection-start-column="66" selection-end-line="9" selection-end-column="110" />
+        <state relative-caret-position="57">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>

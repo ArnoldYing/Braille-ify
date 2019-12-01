@@ -15,16 +15,9 @@ print(tableOfContent)
 print(subTitles)
 print(content)
 
-#for c in content:
-#   braille.textToBraille(c)
-# print (content)
+for c in subTitles:
+    arr = braille.textToAsciiBraille(c)
+    print(str(arr))
 
-# for c in braille.textToAsciiBraille(content):
-#     print(c)
-
-braille.textToBraille('matt')
-arr = braille.textToAsciiBraille('matt')
-
-print(str(arr))
     
 
