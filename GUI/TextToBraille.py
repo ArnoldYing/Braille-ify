@@ -1,6 +1,10 @@
 from tkinter import *
+from lxml import html
+import requests
+import braille
 
-def convertAndRun(array):
+#run this method with array to produce output in braille
+def convertAndRun(thisArray):
     class sixDot:
         def __init__(self, window, xcor, ycor, array):
             size = 6 #size of button
@@ -20,11 +24,18 @@ def convertAndRun(array):
     window.geometry("2600x300")
     window.title("Text to Braille")
 
-    for i in range(len(array)):
+    for i in range(len(thisArray)):
         gap = 150
         sixDot(window, 50 + gap * i, 100, array[i])
 
     window.mainloop()
 
-array = [[[1, 1], [1, 0], [1, 0]], [[1, 1], [1, 0], [1, 0]], [[1, 1], [1, 0], [0, 0]], [[1, 1], [1, 0], [1, 0]]]
-convertAndRun(array)
+page = requests.get('http://en.wikipedia.org/wiki/Fortnite')
+tree = html.fromstring(page.content)
+tableOfContent = tree.xpath('//*[@id="toc"]/ul/li/a/span[@class="toctext"]/text()')
+subTitles = tree.xpath('//h2/span[@class="mw-headline"]/text()')
+content = tree.xpath('//div[@class="mw-parser-output"]/p/text() | //div[@class="mw-parser-output"]/p/*/text() |'
+                     ' //div[@class="mw-parser-output"]/p/*/*/text()')
+for c in subTitles:
+    arr = braille.textToAsciiBraille(c)
+    convertAndRun(arr)
