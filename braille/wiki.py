@@ -7,8 +7,14 @@ tree = html.fromstring(page.content)
 
 content = tree.xpath('//div[@class="mw-parser-output"]/p/text()')
 
-print (content)
+# print (content)
 
-for c in content:
-    braille.textToBraille(c)
+# for c in braille.textToAsciiBraille(content):
+#     print(c)
+
+braille.textToBraille('matt')
+arr = braille.textToAsciiBraille('matt')
+
+print(str(arr))
+    
 
