@@ -251,6 +251,67 @@ def textToBraille(text):
             print(char + " " + str(charToArray[" "]))
     print(final_string)
 
+
+def textToAsciiBraille(text):
+    final_string = []
+    for char in text:
+        char = char.lower()
+        if char == "a":
+            final_string = final_string + [charToArray["a"]]
+        elif char == "b":
+            final_string = final_string + [charToArray["b"]]
+        elif char == "c":
+            final_string = final_string + [charToArray["c"]]
+        elif char == "d":
+            final_string = final_string + [charToArray["d"]]
+        elif char == "e": 
+            final_string = final_string + [charToArray["e"]]
+        elif char == "f": 
+            final_string = final_string + [charToArray["f"]]
+        elif char == "g":
+            final_string = final_string + [charToArray["g"]]
+        elif char == "h": 
+            final_string = final_string + [charToArray["h"]]
+        elif char == "i":
+            final_string = final_string + [charToArray["i"]]
+        elif char == "j": 
+            final_string = final_string + [charToArray["j"]]
+        elif char == "k": 
+            final_string = final_string + [charToArray["k"]]
+        elif char == "l": 
+            final_string = final_string + [charToArray["l"]]
+        elif char == "m": 
+            final_string = final_string + [charToArray["m"]]
+        elif char == "n": 
+            final_string = final_string + [charToArray["n"]]
+        elif char == "o":
+            final_string = final_string + [charToArray["o"]]
+        elif char == "p": 
+            final_string = final_string + [charToArray["p"]]
+        elif char == "q": 
+            final_string = final_string + [charToArray["q"]]
+        elif char == "r": 
+            final_string = final_string + [charToArray["r"]]
+        elif char == "s": 
+            final_string = final_string + [charToArray["s"]]
+        elif char == "t": 
+            final_string = final_string + [charToArray["t"]]
+        elif char == "u": 
+            final_string = final_string + [charToArray["u"]]
+        elif char == "v": 
+            final_string = final_string + [charToArray["v"]]
+        elif char == "w":
+            final_string = final_string + [charToArray["w"]]
+        elif char == "x": 
+            final_string = final_string + [charToArray["x"]]
+        elif char == "y": 
+            final_string = final_string + [charToArray["y"]]
+        elif char == "z":
+            final_string = final_string + [charToArray["z"]]
+        elif char == " ":
+            final_string = final_string + [charToArray[" "]]
+    return final_string
+
 # def speechToBraille():
 #     textToBraille(speechToText())
 
