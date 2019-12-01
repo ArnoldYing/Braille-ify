@@ -14,5 +14,5 @@ We initially tried to implement all the features on Java but we ran into bugs wi
 Python!
 Html parsing, making GUIs in Python, working with APIs.
 
-## What's next for Braillify
+## What's next for Braille-ify
 Concrete Raspberry Pi hardware that displays webpages in Braille in real-time.
